@@ -1,0 +1,39 @@
+=== SYSTEM ARCHITECTURE OVERVIEW ===
+The app is a Vite-based React application that manages a chat-based quotation generation flow. It uses React Context for state and local JS files for data persistence.
+
+=== DETAILED DATA FLOWS ===
+1. **Authentication Flow**:
+   - User selects a salesperson from the login page.
+   - `AppContext` updates `currentUser`.
+   - App redirects to the appropriate dashboard (Admin or Sales).
+
+2. **Manual Quotation Generation**:
+   - User opens `QuotationForm.jsx`.
+   - UI adapts to screen size (column layout for mobile, row for desktop).
+   - User selects a customer and adds products.
+   - On submit, `generateManualQuotation` is called in `AppContext`.
+   - Quotation is added to `quotations` state and `chatHistory`.
+   - A PDF is available for preview/download using `pdfGenerator.js`.
+
+3. **Message-Based Quotation (Parsing)**:
+   - User types a message in `ChatArea.jsx`.
+   - `messageParser.js` scans the message for product keywords and customer names.
+   - If matches are found, the UI suggests a quotation generation.
+
+=== ERROR HANDLING STRATEGIES ===
+- Input validation in `QuotationForm` (checking for selected customer and items).
+- Conditional rendering for empty states (e.g., no products added).
+
+=== DETAILED DATA FLOWS (ADDITIONAL) ===
+4. **Live Quotation Editing**:
+   - Salesperson clicks 'Edit' on a quotation card.
+   - `QuotationEdit` modal opens with existing items.
+   - `updateQuotationItems` in `AppContext` is called with new state.
+   - `isUpdated` flag is set to true on the quote.
+   - `ChatArea` re-renders with the "Updated Quote" badge.
+
+5. **Manager Analytics**:
+   - `AdminDashboard` reads `chatHistory` for all salespeople.
+   - Filters quotes by `stage === 'Won'` (Revenue) and `Pipeline` stages.
+   - Aggregates by date ranges (Today, Yesterday, Current Week, Current Month).
+   - Renders dual charts and a rank-sorted salesperson leaderboard.

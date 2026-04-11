@@ -1,0 +1,17 @@
+=== FRONTEND ===
+- React: Core UI framework.
+- Framer Motion: Used for animations and transitions (e.g., in QuotationForm modal).
+- Lucide React: Icon library.
+- Context API (AppContext): Global state management for user data, chat history, and quotations. Includes `UPDATE_QUOTATION_ITEMS` action for live editing.
+- React Hooks: useState, useMemo, useEffect for state, performance (e.g., stats calculation in AdminDashboard), and lifecycle events.
+- CSS Variables: Used for theming (WhatsApp Green color scheme).
+- Responsive Design: Dynamic layout adjustments using window width state and conditional styles.
+
+=== BACKEND ===
+- Mock API/Data: The app currently uses static JS files (`customers.js`, `products.js`, `chatHistory.js`) to simulate data.
+- PDF Generation: `jsPDF` and `jspdf-autotable` (implied in `pdfGenerator.js`) for creating professional quotations.
+
+=== UTILS ===
+- Message Parser: Custom logic (`messageParser.js`) to extract product and customer information from chat messages.
+- PDF Generator: Utility for professional PDF creation.
+- Timeframe Aggregators: Logic in `AdminDashboard.jsx` to filter and sum revenue/pipeline data by Today, Yesterday, Week, and Month.
