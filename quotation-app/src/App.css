@@ -29,11 +29,11 @@
 .sidebar-header {
   background: var(--primary-dark);
   padding: 12px 16px;
-  padding-top: calc(12px + env(safe-area-inset-top));
+  padding-top: calc(16px + var(--sat, 0px));
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: calc(60px + env(safe-area-inset-top));
+  min-height: calc(64px + var(--sat, 0px));
 }
 
 .sidebar-header-left {
@@ -313,11 +313,11 @@
 .chat-header {
   background: var(--primary-dark);
   padding: 10px 16px;
-  padding-top: calc(10px + env(safe-area-inset-top));
+  padding-top: calc(14px + var(--sat, 0px));
   display: flex;
   align-items: center;
   gap: 12px;
-  min-height: calc(60px + env(safe-area-inset-top));
+  min-height: calc(64px + var(--sat, 0px));
 }
 
 .chat-header-info {
@@ -847,11 +847,11 @@
 .page-header {
   background: var(--primary-dark);
   padding: 16px 24px;
-  padding-top: calc(16px + env(safe-area-inset-top));
+  padding-top: calc(20px + var(--sat, 0px));
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: calc(60px + env(safe-area-inset-top));
+  min-height: calc(68px + var(--sat, 0px));
 }
 
 .page-header h1 {
@@ -1102,7 +1102,7 @@
 .modal-header {
   background: var(--primary-dark);
   padding: 16px 20px;
-  padding-top: calc(16px + env(safe-area-inset-top));
+  padding-top: calc(20px + var(--sat, 0px));
   display: flex;
   align-items: center;
   justify-content: space-between;

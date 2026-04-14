@@ -113,7 +113,7 @@ export default function QuotationForm({ onClose }) {
         }}
       >
         <div style={{
-          padding: isMobile ? `calc(16px + env(safe-area-inset-top)) 20px 16px` : '16px 20px', 
+          padding: isMobile ? `calc(20px + var(--sat, 0px)) 20px 16px` : '16px 20px', 
           background: 'var(--primary-dark)', color: 'white',
           display: 'flex', justifyContent: 'space-between', alignItems: 'center'
         }}>
@@ -268,7 +268,7 @@ export default function QuotationForm({ onClose }) {
             </div>
             
             <div style={{ 
-              padding: isMobile ? `20px 20px calc(20px + env(safe-area-inset-bottom))` : '20px', 
+              padding: isMobile ? `20px 20px calc(24px + var(--sab, 0px))` : '20px', 
               background: 'white', 
               borderTop: '1px solid var(--border)' 
             }}>
