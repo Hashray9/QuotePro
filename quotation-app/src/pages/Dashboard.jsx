@@ -482,8 +482,9 @@ export default function Dashboard() {
             exit={{ opacity: 0, scale: 0.9, x: 50 }}
             style={{
               position: 'fixed',
-              top: '20px',
+              top: 'calc(20px + env(safe-area-inset-top))',
               right: '20px',
+              paddingRight: 'calc(20px + env(safe-area-inset-right))',
               background: 'white',
               boxShadow: '0 10px 25px rgba(0,0,0,0.15)',
               borderRadius: '12px',

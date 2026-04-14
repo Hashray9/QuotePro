@@ -113,7 +113,8 @@ export default function QuotationForm({ onClose }) {
         }}
       >
         <div style={{
-          padding: '16px 20px', background: 'var(--primary-dark)', color: 'white',
+          padding: isMobile ? `calc(16px + env(safe-area-inset-top)) 20px 16px` : '16px 20px', 
+          background: 'var(--primary-dark)', color: 'white',
           display: 'flex', justifyContent: 'space-between', alignItems: 'center'
         }}>
           <h3 style={{ margin: 0, fontSize: '18px', fontWeight: 600 }}>Create Quotation Manually</h3>
@@ -266,7 +267,11 @@ export default function QuotationForm({ onClose }) {
               )}
             </div>
             
-            <div style={{ padding: '20px', background: 'white', borderTop: '1px solid var(--border)' }}>
+            <div style={{ 
+              padding: isMobile ? `20px 20px calc(20px + env(safe-area-inset-bottom))` : '20px', 
+              background: 'white', 
+              borderTop: '1px solid var(--border)' 
+            }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '16px', fontWeight: 600, fontSize: '16px' }}>
                 <span>Total (incl. GST)</span>
                 <span style={{ color: 'var(--primary-dark)' }}>{formatCurrency(calculateTotal())}</span>
