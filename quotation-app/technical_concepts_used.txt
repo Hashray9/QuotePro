@@ -1,17 +1,21 @@
 === FRONTEND ===
 - React: Core UI framework.
-- Framer Motion: Used for animations and transitions (e.g., in QuotationForm modal).
+- Framer Motion: Animations and transitions (modal springs, list AnimatePresence exit/enter, card stagger).
 - Lucide React: Icon library.
-- Context API (AppContext): Global state management for user data, chat history, and quotations. Includes `UPDATE_QUOTATION_ITEMS` action for live editing.
-- React Hooks: useState, useMemo, useEffect for state, performance (e.g., stats calculation in AdminDashboard), and lifecycle events.
-- CSS Variables: Used for theming (WhatsApp Green color scheme).
-- Responsive Design: Dynamic layout adjustments using window width state and conditional styles.
+- Context API (AppContext): Global state for user data, chat history, and quotations. Includes `UPDATE_QUOTATION_ITEMS` and `UPDATE_QUOTATION` actions.
+- React Hooks: useState, useMemo, useEffect for state, derived values, and lifecycle events.
+- CSS Variables + safe-area-inset (env): Theming and notch-safe layout via --sat/--sab custom properties.
+- Responsive Design: Dynamic layout using isMobile state, 100dvh, and conditional styles.
+- getDaysLabel(): Helper in SalesDashboard — computes human-readable overdue/upcoming label from ISO date string.
+- STAGE_COLOR map: Lookup table mapping quotation stage → badge background/text colors.
 
 === BACKEND ===
-- Mock API/Data: The app currently uses static JS files (`customers.js`, `products.js`, `chatHistory.js`) to simulate data.
-- PDF Generation: `jsPDF` and `jspdf-autotable` (implied in `pdfGenerator.js`) for creating professional quotations.
+- Mock API/Data: Static JS files (`customers.js`, `products.js`, `chatHistory.js`) simulate data.
+- chatHistory.js uses daysAgo()/daysFromNow() relative date helpers so demo data is always fresh regardless of run date.
+- PDF Generation: `jsPDF` + `jspdf-autotable` in `pdfGenerator.js` for professional A4 quotations.
 
 === UTILS ===
-- Message Parser: Custom logic (`messageParser.js`) to extract product and customer information from chat messages.
-- PDF Generator: Utility for professional PDF creation.
-- Timeframe Aggregators: Logic in `AdminDashboard.jsx` to filter and sum revenue/pipeline data by Today, Yesterday, Week, and Month.
+- Message Parser: `messageParser.js` extracts product/customer info from natural language chat messages.
+- PDF Generator: Professional A4 PDF with company letterhead, items table, GST breakdown, and signature block.
+- Timeframe Aggregators: Revenue/pipeline KPIs in `AdminDashboard.jsx` filtered by Today/Yesterday/Week/Month.
+

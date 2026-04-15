@@ -24,6 +24,14 @@ The app is a Vite-based React application that manages a chat-based quotation ge
 - Input validation in `QuotationForm` (checking for selected customer and items).
 - Conditional rendering for empty states (e.g., no products added).
 
+=== DEMO DATA SEEDING ===
+- `chatHistory.js` uses relative dates (`daysAgo()` / `daysFromNow()`) based on `new Date()` so data is always fresh.
+- Each salesperson (IDs 1–7) has quotations seeded across three categories:
+  - **Action Required**: `followUpDate` < today AND stage ∉ [Won, Lost].
+  - **Upcoming**: `followUpDate` > today AND stage ∉ [Won, Lost].
+  - **Completed**: stage ∈ [Won, Lost].
+- Notes array carries CRM interaction logs shown in SalesDashboard.
+
 === DETAILED DATA FLOWS (ADDITIONAL) ===
 4. **Live Quotation Editing**:
    - Salesperson clicks 'Edit' on a quotation card.

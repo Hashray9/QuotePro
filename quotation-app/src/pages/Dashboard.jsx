@@ -230,8 +230,8 @@ export default function Dashboard() {
       {!isAdmin && activeTab === 'customers' && <Customers />}
       {!isAdmin && activeTab === 'dashboard' && <SalesDashboard />}
 
-      {/* FABs for Salesperson */}
-      {!isAdmin && (
+      {/* FABs for Salesperson — only on Quotes tab */}
+      {!isAdmin && activeTab === 'chats' && (
         <div className="fab-container">
           <div className="fab-button-wrapper">
             <span className="fab-label">Manual Form</span>
